@@ -1,4 +1,4 @@
-package com.dharma.concurrency.multithread.executor;
+package com.dharma.concurrency.concurrent.executor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -7,7 +7,7 @@ class BasicTask implements Runnable {
     private int taskId;
     private int loopCounter;
 
-    public BasicTask(int taskId, int loopCounter) {
+    BasicTask(int taskId, int loopCounter) {
         this.taskId = taskId;
         this.loopCounter = loopCounter;
     }

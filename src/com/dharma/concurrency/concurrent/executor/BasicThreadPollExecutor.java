@@ -1,4 +1,4 @@
-package com.dharma.concurrency.multithread.executor;
+package com.dharma.concurrency.concurrent.executor;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
@@ -21,7 +21,7 @@ class MyMonitorThread implements Runnable {
     private int seconds;
     private boolean run = true;
 
-    public MyMonitorThread(ThreadPoolExecutor executor, int delay) {
+    MyMonitorThread(ThreadPoolExecutor executor, int delay) {
         this.executor = executor;
         this.seconds = delay;
     }
@@ -56,7 +56,7 @@ class WorkerThread implements Runnable {
 
     private String command;
 
-    public WorkerThread(String s) {
+    WorkerThread(String s) {
         this.command = s;
     }
 

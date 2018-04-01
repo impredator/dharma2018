@@ -100,7 +100,7 @@ class ParallelQuickSort extends RecursiveAction {
 public class MainSort {
 
     public static void main(String[] args) {
-        final int RUN_TIMES = 20;
+        final int RUN_TIMES = 10;
         final int SORT_NUM = 10000000;
         final int QUICKSORT_THRESHOLD = 36200;
 

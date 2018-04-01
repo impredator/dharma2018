@@ -1,4 +1,4 @@
-package com.dharma.concurrency.multithread.executor;
+package com.dharma.concurrency.concurrent.executor;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.Executors;
@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 class ScheduledTask implements Runnable {
     private int taskId;
 
-    public ScheduledTask(int taskId) {
+    ScheduledTask(int taskId) {
         this.taskId = taskId;
     }
 
@@ -30,10 +30,10 @@ public class ScheduleExecutorService {
         sexec.schedule(task1, 2, TimeUnit.SECONDS);
 
         // Task #2 runs after 5 seconds delay and keep running every 10 seconds
-        sexec.scheduleAtFixedRate(task2, 5, 10, TimeUnit.SECONDS);
+        sexec.scheduleAtFixedRate(task2, 0, 10, TimeUnit.SECONDS);
 
         try {
-            TimeUnit.SECONDS.sleep(60);
+            TimeUnit.SECONDS.sleep(25);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

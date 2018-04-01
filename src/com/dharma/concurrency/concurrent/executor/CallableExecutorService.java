@@ -1,4 +1,4 @@
-package com.dharma.concurrency.multithread.executor;
+package com.dharma.concurrency.concurrent.executor;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -8,7 +8,7 @@ import java.util.concurrent.Future;
 class CallableTask implements Callable<Integer> {
     private int taskId;
 
-    public CallableTask(int taskId) {
+    CallableTask(int taskId) {
         this.taskId = taskId;
     }
 

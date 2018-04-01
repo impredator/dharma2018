@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
+import java.util.concurrent.ThreadPoolExecutor;
 
 class Order extends RecursiveTask<String> {
     private int order;
 
-    public Order(int order) {
+    Order(int order) {
         this.order = order;
     }
 
@@ -34,14 +35,14 @@ class Order extends RecursiveTask<String> {
         return result;
     }
 
-    public String getOrder(int order) {
+    private String getOrder(int order) {
         return " [" + order + "] ";
     }
 }
 
 public class BasicForkJoin {
     public static void main(String[] args) {
-        ForkJoinPool pool = new ForkJoinPool();
+        ForkJoinPool pool = new ForkJoinPool();  //ForkJoinPool.commonPool()
         Order task = new Order(5);
         String result = pool.invoke(task);
         System.out.println("Order is " + result);
