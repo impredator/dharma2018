@@ -1,5 +1,5 @@
 package fan;
-
+//...
 public class goods {
     private int number;
     private String name;
