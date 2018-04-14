@@ -1,4 +1,4 @@
-package com.dharma.java8.streamdemo;
+package com.dharma.java8.exercise;
 
 import java.time.LocalDate;
 

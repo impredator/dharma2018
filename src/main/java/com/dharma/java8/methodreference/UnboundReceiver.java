@@ -1,4 +1,4 @@
-package com.dharma.java8.MethodReference;
+package com.dharma.java8.methodreference;
 
 import java.util.function.Function;
 
