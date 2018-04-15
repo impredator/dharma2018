@@ -1,20 +1,17 @@
-package com.dharma.java8.exercise;
-
+package main.java.com.dharma.java8.exercise;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamMain {
 
-    private static List<Student> register() {
+    private static List<main.java.com.dharma.java8.exercise.Student> register() {
         Student s1 = new Student(1L, "FeiZhen", Student.Gender.MALE, 100, LocalDate.of(2000, Month.JUNE, 12), Student.Department.EE);
         Student s2 = new Student(2L, "LiuYuHao", Student.Gender.MALE, 90, LocalDate.of(1999, Month.JANUARY, 25), Student.Department.CN);
         Student s3 = new Student(3L, "WangRu", Student.Gender.FEMALE, 130, LocalDate.of(1983, Month.JUNE, 13), Student.Department.AM);
         Student s4 = new Student(4L, "WenJiaChen", Student.Gender.MALE, 20, LocalDate.of(1999, Month.APRIL, 1), Student.Department.CN);
-        Student s5 = new Student(5L, "FanChuang", Student.Gender.MALE, 10, LocalDate.of(1995, Month.DECEMBER, 12), Student.Department.CN);
+        Student s5 = new Student(5L, "FanChuang", Student.Gender.MALE, 10000, LocalDate.of(1995, Month.DECEMBER, 12), Student.Department.CN);
         Student s6 = new Student(6L, "JiaBin", Student.Gender.MALE, 40, LocalDate.of(1995, Month.NOVEMBER, 22), Student.Department.CS);
         Student s7 = new Student(7L, "DongDaHai", Student.Gender.MALE, 70, LocalDate.of(1996, Month.JULY, 1), Student.Department.CN);
         Student s8 = new Student(8L, "LuoMing", Student.Gender.MALE, 80, LocalDate.of(1996, Month.JUNE, 25), Student.Department.CL);
@@ -53,5 +50,15 @@ public class StreamMain {
                 .collect(Collectors.groupingBy(
                         Student::getGender, Collectors.counting()));
         log("Student total by gender is: ", groupCountByGender);
+
+
+        Optional<Student> maxCredit = students.stream()
+                .max((o1, o2) -> o2.getCredit() - o1.getCredit());
+        if(maxCredit.isPresent()){
+            log("maxcredit is :",maxCredit.get().getName());
+        }else{
+            log("can not find max credit","!");
+        }
     }
 }
+
