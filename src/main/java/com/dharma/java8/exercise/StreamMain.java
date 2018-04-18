@@ -97,8 +97,8 @@ public class StreamMain {
         LongSummaryStatistics creditStats = students.stream()
                 .map(Student::getCredit)
                 .collect(LongSummaryStatistics::new,
-                         LongSummaryStatistics::accept,
-                         LongSummaryStatistics::combine);
+                        LongSummaryStatistics::accept,
+                        LongSummaryStatistics::combine);
         log("Stats: ", creditStats);
 
         LongSummaryStatistics creditStats2 = students.stream()
