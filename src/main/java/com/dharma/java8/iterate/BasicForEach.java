@@ -21,7 +21,10 @@ public class BasicForEach {
 //            if (i.equals(3)) myList.remove(i);
         }
 
-        myList.forEach(t -> System.out.println("forEach anonymous class Value::" + t));
+        myList.forEach(t -> {
+            System.out.println("forEach anonymous class Value::" + t);
+//            if (t.equals(3)) myList.remove(t);
+        });
 
         MyConsumer action = new MyConsumer();
         myList.forEach(action);

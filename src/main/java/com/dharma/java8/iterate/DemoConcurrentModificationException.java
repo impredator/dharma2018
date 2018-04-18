@@ -27,11 +27,11 @@ public class DemoConcurrentModificationException {
         Iterator<String> it1 = myMap.keySet().iterator();
         while (it1.hasNext()) {
             String key = it1.next();
-            System.out.println("Map Value:" + myMap.get(key));
             if (key.equals("2")) {
-//                myMap.put("1", "4");
-                myMap.put("4", "4");
+                myMap.put("1", "4");
+//                myMap.put("4", "4");
             }
+            System.out.println("Map Value:" + myMap.get(key));
         }
 
     }

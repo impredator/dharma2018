@@ -2,9 +2,7 @@ package com.dharma.java8.exercise;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamMain {
@@ -53,5 +51,80 @@ public class StreamMain {
                 .collect(Collectors.groupingBy(
                         Student::getGender, Collectors.counting()));
         log("Student total by gender is: ", groupCountByGender);
+
+        Optional<Student> maxCredit = students.stream()
+                .max((s1, s2) -> s2.getCredit() - s1.getCredit());
+        if (maxCredit.isPresent()) {
+            log("Max credit is: ", maxCredit.get().getName());
+        } else {
+            log("Can not find max credit", "!");
+        }
+
+        Integer parallelSumCredit = students.parallelStream()
+                .reduce(0,
+                        (Integer partialSum, Student s) -> {
+                            Integer middle = partialSum + s.getCredit();
+                            System.out.println(Thread.currentThread().getName() + " " + s.getName() + " " + middle);
+                            return middle;
+                        },
+                        (a, b) -> {
+                            System.out.println(Thread.currentThread().getName() + " " + a + " " + b);
+                            return a + b;
+                        });
+
+        log("The parallel sum credit is: ", parallelSumCredit);
+
+        Integer sumCredit = students.stream()
+                .reduce(0,
+                        (Integer partialSum, Student s) -> {
+                            Integer middle = partialSum + (Integer)s.getCredit();
+                            System.out.println(Thread.currentThread().getName() + " " + s.getName() + " " + middle);
+                            return middle;
+                        },
+                        (a, b) -> {
+                            System.out.println(Thread.currentThread().getName() + "---" + a + "+" + b);
+                            return null;
+                        });
+
+        log("The sum credit is: ", sumCredit);
+
+        boolean allMale = students.stream().allMatch(Student::isMale);
+        log("If all male student? ", allMale);
+
+        boolean anyFemale = students.stream().anyMatch(Student::isFemale);
+        log("If any female student? ", anyFemale);
+
+        LongSummaryStatistics creditStats = students.stream()
+                .map(Student::getCredit)
+                .collect(LongSummaryStatistics::new,
+                         LongSummaryStatistics::accept,
+                         LongSummaryStatistics::combine);
+        log("Stats: ", creditStats);
+
+        LongSummaryStatistics creditStats2 = students.stream()
+                .collect(Collectors.summarizingLong(Student::getCredit));
+        log("Stats: ", creditStats2);
+
+        Double creditAvg = students.stream()
+                .collect(Collectors.averagingDouble(Student::getCredit));
+        log("Credit average: ", creditAvg);
+
+        Map<Long, String> idNameMap = students.stream()
+                .collect(Collectors.toMap(Student::getId, Student::getName));
+        log("<Id, Name>: ", idNameMap);
+
+        String names = students.stream()
+                .map(Student::getName)
+                .collect(Collectors.joining(", ", "Dharma 2018: ", " !Good job"));
+        log("", names);
+
+        Optional<Student> hasFemale = students.stream()
+                .filter(Student::isFemale)
+                .findAny();
+        if(hasFemale.isPresent()) {
+            log("Yes, we have female students: ", hasFemale.get().getName());
+        } else {
+            log("No, we have only male students", "");
+        }
     }
 }
