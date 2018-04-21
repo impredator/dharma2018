@@ -38,7 +38,7 @@ class DumbTest {
 
     @Test
     void trueAssumption() {
-        assumeTrue(5 < 1);
+        assumeTrue(true);
         assertEquals(5 + 2, 7);
     }
 
@@ -49,12 +49,11 @@ class DumbTest {
     }
 
     @Test
-    void assumptionThat() {
-        String someString = "Just a string";
+    void assumptionThatOne() {
+        String someString = "Just a string".concat("!");
         assumingThat(
                 someString.equals("Just a string"),
-                () -> assertEquals(2 + 2, 4)
+                () -> assertEquals(2 + 2, 2)
         );
     }
-
 }

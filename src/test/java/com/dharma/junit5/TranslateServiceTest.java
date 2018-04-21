@@ -6,30 +6,50 @@ import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @RunWith(JUnitPlatform.class)
 class TranslateServiceTest {
 
-  private TranslateService Translator;
+    private TranslateService Translator;
 
-  @BeforeEach
-  void setUp() {
-    Translator = new TranslateService();
-  }
+    @BeforeEach
+    void setUp() {
+        Translator = new TranslateService();
+    }
 
-  @Test
-  void testTranlsateHello() {
-    assertEquals("Bonjour", Translator.tranlate("Hello"));
-  }
+    @Test
+    void testTranslateHello() {
+        assertEquals("Bonjour", Translator.translate("Hello"));
+    }
 
-  @Test
-  void testTranlsateYes() {
-    assertEquals("Oui", Translator.tranlate("Yes"));
-  }
+    @Test
+    void testTranslateHelloWithCase() {
+        assertEquals("Bonjour", Translator.translate("hEllo"));
+    }
 
-  @Test
-  void testTranlsateNo() {
-    assertEquals("Non", Translator.tranlate("No"));
-  }
+    @Test
+    void testTranslateYes() {
+        assertEquals("Oui", Translator.translate("Yes"));
+    }
+
+    @Test
+    void testTranslateNo() {
+        assertEquals("Non", Translator.translate("No"));
+    }
+
+    @Test
+    void testTranslateNotExist() {
+        assertEquals("Not found", Translator.translate("Dharma"));
+    }
+
+    @Test
+    void testTranslateBlank() {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            Translator.translate("");
+        });
+
+        assertEquals(exception.getMessage(), "Translated text must not be empty.");
+    }
 
 }

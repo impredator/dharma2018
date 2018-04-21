@@ -33,10 +33,10 @@ public class TranslationEngineDynamicTest {
       String outPhr = outPhrases.get(i);
 
       // create an test execution
-      Executable exec = () -> assertEquals(outPhr, translatorEngine.tranlate(phr));
+      Executable exec = () -> assertEquals(outPhr, translatorEngine.translate(phr));
 
       // create a test display name
-      String testName = "Test tranlate " + phr;
+      String testName = "Test translate " + phr;
       // create dynamic test
       DynamicTest dTest = DynamicTest.dynamicTest(testName, exec);
 
@@ -62,10 +62,10 @@ public class TranslationEngineDynamicTest {
       String outPhr = outPhrases.get(i);
 
       // create an test execution
-      Executable exec = () -> assertEquals(outPhr, translatorEngine.tranlate(phr));
+      Executable exec = () -> assertEquals(outPhr, translatorEngine.translate(phr));
 
       // create a test display name
-      String testName = "Test tranlate " + phr;
+      String testName = "Test translate " + phr;
       // create dynamic test
       DynamicTest dTest = DynamicTest.dynamicTest(testName, exec);
 
@@ -86,7 +86,7 @@ public class TranslationEngineDynamicTest {
 
     return inPhrases.stream().map(phrs -> DynamicTest.dynamicTest("Test translate " + phrs, () -> {
       int idx = inPhrases.indexOf(phrs);
-      assertEquals(outPhrases.get(idx), translatorEngine.tranlate(phrs));
+      assertEquals(outPhrases.get(idx), translatorEngine.translate(phrs));
     }));
   }
 
@@ -101,7 +101,7 @@ public class TranslationEngineDynamicTest {
 
     return inPhrases.stream().map(phrs -> DynamicTest.dynamicTest("Test translate " + phrs, () -> {
       int idx = inPhrases.indexOf(phrs);
-      assertEquals(outPhrases.get(idx), translatorEngine.tranlate(phrs));
+      assertEquals(outPhrases.get(idx), translatorEngine.translate(phrs));
     })).iterator();
   }
 
@@ -115,7 +115,7 @@ public class TranslationEngineDynamicTest {
 
     return inPhrases.stream().map(phrs -> DynamicTest.dynamicTest("Test translate " + phrs, () -> {
       int idx = inPhrases.indexOf(phrs);
-      assertEquals(outPhrases.get(idx), translatorEngine.tranlate(phrs));
+      assertEquals(outPhrases.get(idx), translatorEngine.translate(phrs));
     })).collect(Collectors.toList());
   }
 }

@@ -33,7 +33,7 @@ class StringUtilsTest {
     @Test
     void testConvertToDoubleOK() {
         String age = "1990";
-        Double expAge = Double.valueOf(age);
+        Double expAge = 1990.0;
         Double actual = StringUtils.convertToDouble(age);
 
         assertAll("Do many assertions.", () -> {
@@ -53,6 +53,7 @@ class StringUtilsTest {
     void testConvertToDoubleWithNullArgument() {
         String age = null;
         Double actual = StringUtils.convertToDouble(age);
+        assertEquals(null, actual, "The actual is not null");
         assertNull(actual, "The actual is not null");
         assertNull(actual, () -> "The actual is not null");
     }

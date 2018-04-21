@@ -2,31 +2,35 @@ package com.dharma.junit5;
 
 import org.junit.platform.commons.util.StringUtils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TranslateService {
 
-    public String tranlate(String text) {
+    private Map<String, String> dictionary = new HashMap<>();
+
+    TranslateService() {
+        initDict();
+    }
+
+    public String translate(String text) {
         if (StringUtils.isBlank(text)) {
             throw new IllegalArgumentException("Translated text must not be empty.");
         }
-        if ("Hello".equalsIgnoreCase(text)) {
-            return "Bonjour";
+        return fromEnglishToFrench(text);
+    }
 
-        } else if ("Yes".equalsIgnoreCase(text)) {
-            return "Oui";
+    private void initDict() {
+        dictionary.put("hello", "Bonjour");
+        dictionary.put("yes", "Oui");
+        dictionary.put("no", "Non");
+        dictionary.put("goodbye", "Au revior");
+        dictionary.put("good night", "Bonne nuit");
+        dictionary.put("thank you", "Merci");
+    }
 
-        } else if ("No".equalsIgnoreCase(text)) {
-            return "Non";
-
-        } else if ("Goodbye".equalsIgnoreCase(text)) {
-            return "Au revoir";
-
-        } else if ("Good night".equalsIgnoreCase(text)) {
-            return "Bonne nuit";
-
-        } else if ("Thank you".equalsIgnoreCase(text)) {
-            return "Merci";
-        } else {
-            return "Not found";
-        }
+    private String fromEnglishToFrench(String text) {
+        String textLowerCase = text.toLowerCase();
+        return dictionary.getOrDefault(textLowerCase, "Not found");
     }
 }
