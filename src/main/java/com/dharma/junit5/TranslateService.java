@@ -24,7 +24,7 @@ public class TranslateService {
         dictionary.put("hello", "Bonjour");
         dictionary.put("yes", "Oui");
         dictionary.put("no", "Non");
-        dictionary.put("goodbye", "Au revior");
+        dictionary.put("goodbye", "Au revoir");
         dictionary.put("good night", "Bonne nuit");
         dictionary.put("thank you", "Merci");
     }
