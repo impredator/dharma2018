@@ -82,7 +82,7 @@ public class TranslationEngineDynamicTest {
     List<String> inPhrases =
         new ArrayList<>(Arrays.asList("Hello", "Yes", "No", "Goodbye", "Good night", "Thank you"));
     List<String> outPhrases =
-        new ArrayList<>(Arrays.asList("Bonjour", "Oui", "Non", "Au revoir", "Bonne nuit", "Merci"));
+        new ArrayList<>(Arrays.asList("Bonjour", "Oui", "Non", "Au revior", "Bonne nuit", "Merci"));
 
     return inPhrases.stream().map(phrs -> DynamicTest.dynamicTest("Test translate " + phrs, () -> {
       int idx = inPhrases.indexOf(phrs);
