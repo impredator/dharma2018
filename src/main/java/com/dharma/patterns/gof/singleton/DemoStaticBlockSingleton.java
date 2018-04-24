@@ -1,4 +1,4 @@
-package com.dharma.patterns.gof;
+package com.dharma.patterns.gof.singleton;
 
 class StaticBlockSingleton {
 
