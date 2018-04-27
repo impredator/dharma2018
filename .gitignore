@@ -1,4 +1,12 @@
-.idea/
+# Java
 out/
-target/
+
+# Intellij
+.idea/
 *.iml
+*.iws
+
+# Maven
+log/
+target/
+
