@@ -1,4 +1,4 @@
-package com.dharma.patterns.gof.behavioral.command.iterator;
+package com.dharma.patterns.gof.behavioral.iterator;
 
 import java.util.ArrayList;
 import java.util.List;

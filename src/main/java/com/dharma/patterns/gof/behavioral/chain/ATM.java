@@ -1,4 +1,4 @@
-package com.dharma.patterns.gof.behavioral.command.chain;
+package com.dharma.patterns.gof.behavioral.chain;
 
 import java.util.Scanner;
 

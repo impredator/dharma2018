@@ -1,4 +1,4 @@
-package com.dharma.patterns.gof.behavioral.command.interpreter;
+package com.dharma.patterns.gof.behavioral.interpreter;
 
 //领域（句子）
 class InterpreterContext {

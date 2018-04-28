@@ -1,4 +1,4 @@
-package com.dharma.patterns.gof.behavioral.command.command;
+package com.dharma.patterns.gof.behavioral.command;
 
 // 命令接受者
 interface FileSystemReceiver {

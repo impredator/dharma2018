@@ -1,4 +1,4 @@
-package com.dharma.patterns.gof.behavioral.command.interpreter;
+package com.dharma.patterns.gof.behavioral.interpreter;
 
 import java.util.HashMap;
 import java.util.Map;

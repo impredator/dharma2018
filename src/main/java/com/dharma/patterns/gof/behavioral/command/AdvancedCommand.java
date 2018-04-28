@@ -1,4 +1,4 @@
-package com.dharma.patterns.gof.behavioral.command.command;
+package com.dharma.patterns.gof.behavioral.command;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
