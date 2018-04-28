@@ -39,6 +39,8 @@ class MyPublisher implements IPublisher {
         synchronized (MUTEX) {
             if (!subscribers.contains(obj)) {
                 subscribers.add(obj);
+                // TAG: 007
+                obj.setPublisher(this);
             }
         }
     }
@@ -120,13 +122,13 @@ public class DemoObserver {
         publisher.register(michael);
         publisher.register(jerry);
 
-        //添加发布者
-        tom.setPublisher(publisher);
-        michael.setPublisher(publisher);
-        jerry.setPublisher(publisher);
+// TAG: 007
+//        //添加发布者
+//        tom.setPublisher(publisher);
+//        michael.setPublisher(publisher);
+//        jerry.setPublisher(publisher);
 
         //更新
-
         tom.update();
 
         //发送消息
