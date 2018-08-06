@@ -1,5 +1,8 @@
 package com.dharma.generics;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GenericMethod {
 
     public static <T> boolean isEqual(GenericClass<T> g1, GenericClass<T> g2){
