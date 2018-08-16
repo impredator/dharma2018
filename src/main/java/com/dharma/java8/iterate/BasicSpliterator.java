@@ -13,7 +13,11 @@ public class BasicSpliterator {
         names.add("Chinni");
 
         Spliterator<String> namesSpliterator = names.spliterator();
+        Spliterator<String> nextNamesSpliterator = namesSpliterator.trySplit();
 
         namesSpliterator.forEachRemaining(System.out::println);
+
+        nextNamesSpliterator.tryAdvance(System.out::println);
+
     }
 }
