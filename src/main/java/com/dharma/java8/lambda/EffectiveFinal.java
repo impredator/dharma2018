@@ -1,5 +1,6 @@
 package com.dharma.java8.lambda;
 
+@FunctionalInterface
 interface Coffee {
     void service(String shop, String name);
 }
