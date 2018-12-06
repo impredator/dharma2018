@@ -1,35 +1,40 @@
 package com.dharma.generics;
 
-class Triple<T extends Number & Comparable<T>> {
-    T value1;
-    T value2;
-    T value3;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Triple(T v1, T v2, T v3) {
+class Triple<T extends Number & Comparable<T>> {
+    private T value1;
+    private T value2;
+    private T value3;
+
+    private Triple(T v1, T v2, T v3) {
         value1 = v1;
         value2 = v2;
         value3 = v3;
     }
 
-    public T readValue1() {
+    private T readValue1() {
         return value1;
     }
 
-    public void setValue1(T val) {
+    private void setValue1(T val) {
         value1 = val;
     }
 
-    public T addValues() {
+    private T addValues() {
         Number res1 = value1.doubleValue() + value2.doubleValue() + value3.doubleValue();
         return (T) res1;
     }
 
-    public T largest() {
+    private T largest() {
         T res = value1;
-        if (value2.compareTo(res) > 0)
+        if (value2.compareTo(res) > 0) {
             res = value2;
-        if (value3.compareTo(res) > 0)
+        }
+        if (value3.compareTo(res) > 0) {
             res = value3;
+        }
         return res;
     }
 

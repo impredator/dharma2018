@@ -15,7 +15,7 @@ public class WordCounter {
         System.out.println(map2);
     }
 
-    public static <T>HashMap<T,Integer> wordCount(T group[]) {
+    private static <T>HashMap<T,Integer> wordCount(T group[]) {
         HashMap<T,Integer> map = new HashMap<T, Integer>();
         for (T member : group) {
             if (map.get(member) == null) {
