@@ -32,15 +32,15 @@ public class TranslationEngineDynamicTest {
       String phr = inPhrases.get(i);
       String outPhr = outPhrases.get(i);
 
-      // create an test execution
+      // create an doSomething execution
       Executable exec = () -> assertEquals(outPhr, translatorEngine.translate(phr));
 
-      // create a test display name
+      // create a doSomething display name
       String testName = "Test translate " + phr;
-      // create dynamic test
+      // create dynamic doSomething
       DynamicTest dTest = DynamicTest.dynamicTest(testName, exec);
 
-      // add the dynamic test to collection
+      // add the dynamic doSomething to collection
       dynamicTests.add(dTest);
     }
   }
@@ -61,15 +61,15 @@ public class TranslationEngineDynamicTest {
       String phr = inPhrases.get(i);
       String outPhr = outPhrases.get(i);
 
-      // create an test execution
+      // create an doSomething execution
       Executable exec = () -> assertEquals(outPhr, translatorEngine.translate(phr));
 
-      // create a test display name
+      // create a doSomething display name
       String testName = "Test translate " + phr;
-      // create dynamic test
+      // create dynamic doSomething
       DynamicTest dTest = DynamicTest.dynamicTest(testName, exec);
 
-      // add the dynamic test to collection
+      // add the dynamic doSomething to collection
       dynamicTests.add(dTest);
     }
     return dynamicTests;

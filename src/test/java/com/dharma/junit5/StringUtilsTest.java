@@ -12,22 +12,22 @@ class StringUtilsTest {
 
     @BeforeAll
     static void setup() {
-        System.out.println("@BeforeAll - executes once before all test methods in this class");
+        System.out.println("@BeforeAll - executes once before all doSomething methods in this class");
     }
 
     @BeforeEach
     void init() {
-        System.out.println("@BeforeEach - executes before each test method in this class");
+        System.out.println("@BeforeEach - executes before each doSomething method in this class");
     }
 
     @AfterEach
     void tearDown() {
-        System.out.println("@AfterEach - executed after each test method.");
+        System.out.println("@AfterEach - executed after each doSomething method.");
     }
 
     @AfterAll
     static void done() {
-        System.out.println("@AfterAll - executed after all test methods.");
+        System.out.println("@AfterAll - executed after all doSomething methods.");
     }
 
     @Test
@@ -131,7 +131,7 @@ class StringUtilsTest {
     }
 
     @DisplayName("Test concat with null")
-    @Disabled("Not ready to test")
+    @Disabled("Not ready to doSomething")
     @Test
     void testConcatWithAllNullInput() {
         String actual = StringUtils.concat();
