@@ -8,6 +8,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockWithCondition {
 
+    //java Stack is LIFO (Last In First Out) list
+    //It extends Vector class but supports only five operations.
     private Stack<String> stack = new Stack<>();
     private static final int CAPACITY = 5;
 
@@ -47,12 +49,12 @@ public class ReentrantLockWithCondition {
 
     public static void main(String[] args) {
         final int threadCount = 2;
-        ReentrantLockWithCondition object = new ReentrantLockWithCondition();
+        ReentrantLockWithCondition rwc = new ReentrantLockWithCondition();
         final ExecutorService service = Executors.newFixedThreadPool(threadCount);
         service.execute(() -> {
             for (int i = 0; i < 10; i++) {
                 try {
-                    object.pushToStack("Item " + i);
+                    rwc.pushToStack("Item " + i);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -63,7 +65,7 @@ public class ReentrantLockWithCondition {
         service.execute(() -> {
             for (int i = 0; i < 10; i++) {
                 try {
-                    System.out.println("Item popped " + object.popFromStack());
+                    System.out.println("Item popped " + rwc.popFromStack());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

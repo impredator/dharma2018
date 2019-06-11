@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 class Operator {
     private static Scanner scanner = new Scanner(System.in);
-    private static Grocery grocery;
+    private Grocery grocery;
 
     public Operator(Grocery grocery) {
         this.grocery = grocery;
     }
 
-    public static void printInstruction() {
+    public void printInstruction() {
         System.out.println("0. Instructions  1. List Items 2. Add Items 3. Modify Items 4. Remove Items 5. Search Items 6. Quit");
     }
 
@@ -29,7 +29,7 @@ class Operator {
                     printInstruction();
                     break;
                 case 1:
-                    this.grocery.grocery();
+                    grocery.grocery();
                     break;
                 case 2:
                     addItem();
@@ -51,27 +51,27 @@ class Operator {
         }
     }
 
-    public static void addItem() {
+    public void addItem() {
         System.out.println("Enter the Item");
         grocery.groceryItemAdd(scanner.nextLine());
     }
 
-    public static void modifyItem() {
+    public void modifyItem() {
         System.out.println("Enter position to Modify: ");
         int position = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Enter The Item:");
-        String item = scanner.next();
+        String item = scanner.nextLine();
         grocery.modifyGroceryList(position - 1, item);
     }
 
-    public static void removeItem() {
+    public void removeItem() {
         System.out.println("Enter position to Remove: ");
         int position = scanner.nextInt();
         grocery.removeGroceryItem(position);
     }
 
-    public static void searchItem() {
+    public void searchItem() {
         System.out.println("Enter the item to Search ");
         String item = scanner.next();
         grocery.findGroceryItem(item);

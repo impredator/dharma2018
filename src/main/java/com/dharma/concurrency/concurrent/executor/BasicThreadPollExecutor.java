@@ -86,6 +86,7 @@ public class BasicThreadPollExecutor {
     public static void main(String args[]) throws InterruptedException {
         RejectedExecutionHandlerImpl rejectionHandler = new RejectedExecutionHandlerImpl();
         ThreadFactory threadFactory = Executors.defaultThreadFactory();
+        // max thread is 4 + 2 = 6, 4 of 10 will be rejected
         ThreadPoolExecutor executorPool = new ThreadPoolExecutor(2, 4, 10, TimeUnit.SECONDS, new ArrayBlockingQueue<>(2), threadFactory, rejectionHandler);
         MyMonitorThread monitor = new MyMonitorThread(executorPool, 3);
         Thread monitorThread = new Thread(monitor);

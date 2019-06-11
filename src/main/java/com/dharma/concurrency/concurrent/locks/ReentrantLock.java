@@ -1,9 +1,7 @@
 package com.dharma.concurrency.concurrent.locks;
 
-import java.util.concurrent.locks.ReentrantLock;
-
-public class ReenterLock implements Runnable {
-    public static ReentrantLock lock = new ReentrantLock();
+public class ReentrantLock implements Runnable {
+    public static java.util.concurrent.locks.ReentrantLock lock = new java.util.concurrent.locks.ReentrantLock();
     public static int i = 0;
 
     @Override
@@ -19,7 +17,7 @@ public class ReenterLock implements Runnable {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ReenterLock rl = new ReenterLock();
+        ReentrantLock rl = new ReentrantLock();
         Thread t1 = new Thread(rl);
         Thread t2 = new Thread(rl);
 
