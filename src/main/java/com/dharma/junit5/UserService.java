@@ -11,10 +11,9 @@ public class UserService {
     public boolean login(String username, String password) {
         if (StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
             throw new IllegalArgumentException("Username and password must not be null or empty");
-        } else if (username.equals("admin") && password.equals("admin")) {
-            return true;
+        } else {
+            return username.equals("admin") && password.equals("admin");
         }
-        return false;
     }
 
     public boolean changePassword(long userId, String oldPassword, String newPassword) {
@@ -36,6 +35,4 @@ public class UserService {
         }
         return true;
     }
-
-
 }

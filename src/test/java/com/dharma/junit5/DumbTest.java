@@ -23,7 +23,7 @@ class DumbTest {
 
     @Test
     void lambdaExpressions() {
-        assertTrue(dumb.getSum(1,2,3) > 5, () -> "Sum should be greater than 5");
+        assertTrue(dumb.getSum(1,2,3) > 5, "Sum should be greater than 5");
     }
 
     @Test
@@ -55,5 +55,9 @@ class DumbTest {
                 someString.equals("Just a string"),
                 () -> assertEquals(2 + 2, 2)
         );
+
+        assumingThat(
+                someString.equals("Just a string!"),
+                () -> System.out.println("happens if assume condition is true"));
     }
 }
